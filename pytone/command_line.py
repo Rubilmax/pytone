@@ -5,6 +5,6 @@ import os
 
 
 def run_python_command():
-    print(sys.argv)
-    playsound("assets/nyancat.mp3")
+    os.system("python " + " ".join(sys.argv[1:]))
+    playsound("./pytone/assets/nyancat.mp3")
     time.sleep(1)
