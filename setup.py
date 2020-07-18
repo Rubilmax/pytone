@@ -21,5 +21,6 @@ setuptools.setup(
     python_requires='>=3.5',
     entry_points={
         'console_scripts': ['pytone=pytone.command_line:run_python_command'],
-    }
+    },
+    package_data={'pytone': ['assets/*.mp3']}
 )
