@@ -22,5 +22,5 @@ setuptools.setup(
     entry_points={
         'console_scripts': ['pytone=pytone.command_line:run_python_command'],
     },
-    package_data={'pytone': ['assets/*.mp3']}
+    package_data={'pytone': ["assets/*", "assets/sounds/*"]}
 )

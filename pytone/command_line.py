@@ -1,13 +1,19 @@
-from playsound import playsound
-import time
-import sys
 import os
+import sys
+import time
+import threading
 
-file_dir = os.path.dirname(os.path.abspath(__file__))
+from playsound import playsound
+
+from .paths import get_soundfile
+from .notifications import notify
 
 
 def run_python_command():
     os.system("python " + " ".join(sys.argv[1:]))
-    soundfile = os.path.join(file_dir, "assets", "nyancat.mp3")
+    soundfile = get_soundfile("nyancat")
+
+    threading.Thread(target=notify).start()
     playsound(soundfile)
+
     time.sleep(1)
