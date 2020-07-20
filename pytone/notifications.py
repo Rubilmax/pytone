@@ -3,10 +3,11 @@ from plyer import notification
 from .paths import python_icon
 
 
-def notify(title: str = "Python notification", message: str = "Your program has completed"):
+def notify(message: str = "Your program has completed", timeout: float = 10.):
     notification.notify(
-        title=title,
+        title="Python notification",
         message=message,
         app_name="Python",
-        app_icon=python_icon
+        app_icon=python_icon,
+        timeout=timeout
     )
