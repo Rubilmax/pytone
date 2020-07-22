@@ -2,7 +2,6 @@ import os
 import sys
 import time
 import threading
-import pync
 
 from playsound import playsound
 
@@ -15,14 +14,6 @@ def run_python_command():
         notify("An error occurred during your program execution!", duration=5.)
     else:
         soundfile = get_random_soundfile()
-
-    pync.notify('Hello World')
-    print('test')
-    pync.notify('Hello World', title='Python')
-
-    pync.remove_notifications(os.getpid())
-
-    pync.list_notifications(os.getpid())
 
     time.sleep(1)
     notify()
