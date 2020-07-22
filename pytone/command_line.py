@@ -6,13 +6,15 @@ import pync
 
 from playsound import playsound
 
-from .paths import get_soundfile
+from .paths import get_random_soundfile
 from .notifications import notify
 
 
 def run_python_command():
-    os.system("python " + " ".join(sys.argv[1:]))
-    soundfile = get_soundfile("nyancat")
+    if os.system("python " + " ".join(sys.argv[1:])):
+        notify("An error occurred during your program execution!", duration=5.)
+    else:
+        soundfile = get_random_soundfile()
 
     pync.notify('Hello World')
     print('test')
@@ -22,7 +24,7 @@ def run_python_command():
 
     pync.list_notifications(os.getpid())
 
-    threading.Thread(target=notify).start()
-    playsound(soundfile)
-
     time.sleep(1)
+    notify()
+    playsound(soundfile)
+    time.sleep(.1)

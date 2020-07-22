@@ -1,2 +1,4 @@
 playsound==1.2.2
-plyer==1.4.3
+py-notifier==0.1.0;sys_platform=="win32"
+py-notifier==0.1.0;sys_platform=="linux"
+pyobjus==1.1.0;sys_platform=="darwin"
