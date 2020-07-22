@@ -4,12 +4,16 @@ import os
 from .paths import python_icon
 
 
-def notify(message: str = "Your program has completed", duration: float = 10.):
+def notify(
+        title='Python notification',
+        message: str = "Your program has completed",
+        duration: float = 10.
+    ):
     if sys.platform != "darwin":
         from pynotifier import Notification
 
         Notification(
-            title="Python notification",
+            title=title,
             description=message,
             icon_path=python_icon,
             duration=duration,
@@ -17,7 +21,7 @@ def notify(message: str = "Your program has completed", duration: float = 10.):
         ).send()
     else:
         import pync 
-        pync.notify('Hello World', title='Python')
+        pync.notify(message, title=title)
         pync.remove_notifications(os.getpid())
 
         pync.list_notifications(os.getpid())
