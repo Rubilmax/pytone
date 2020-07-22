@@ -20,8 +20,8 @@ def notify(
             urgency=Notification.URGENCY_CRITICAL
         ).send()
     else:
-        import pync 
-        pync.notify(message, title=title)
-        pync.remove_notifications(os.getpid())
+        from pync import Notifier
 
-        pync.list_notifications(os.getpid())
+        Notifier.notify(message, title=title)
+        Notifier.remove(os.getpid())
+        Notifier.list(os.getpid())
