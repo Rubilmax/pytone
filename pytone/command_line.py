@@ -15,4 +15,4 @@ def run_python_command():
     else:
         notify()
         playsound(get_soundfile("nyancat"))
-        time.sleep(.1)
+        time.sleep(.05)
