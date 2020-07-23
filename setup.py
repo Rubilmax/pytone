@@ -2,6 +2,9 @@ import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
+with open("./requirements.txt", "r") as fh:
+    requirements = fh.read().replace(' ', '').split('\n')
+    requirements = list(filter(lambda x: len(x) > 0, requirements))
 
 setuptools.setup(
     name="pytone",
@@ -22,5 +25,6 @@ setuptools.setup(
     entry_points={
         'console_scripts': ['pytone=pytone.command_line:run_python_command'],
     },
-    package_data={'pytone': ["assets/*", "assets/sounds/*"]}
+    package_data={'pytone': ["assets/*", "assets/sounds/*"]},
+    install_requires=requirements,
 )
