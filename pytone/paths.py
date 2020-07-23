@@ -5,12 +5,8 @@ import random
 
 file_dir = os.path.dirname(os.path.abspath(__file__))
 
-if sys.platform == "win32":
-    python_icon = os.path.join(file_dir, "assets", "python.ico")
-elif sys.platform == "linux":
-    python_icon = os.path.join(file_dir, "assets", "python.png")
-elif sys.platform == "darwin":
-    python_icon = None
+icon_ext = "ico" if sys.platform == "win32" else "png"
+python_icon = os.path.join(file_dir, "assets", f"python.{icon_ext}")
 
 
 def get_soundfile(sound_name: str):

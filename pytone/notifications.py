@@ -5,11 +5,12 @@ from .paths import python_icon
 
 
 def notify(
-        title='Python notification',
-        message: str = "Your program has completed",
-        duration: float = 10.
-    ):
+    title="Python notification",
+    message: str = "Your program has completed",
+    duration: float = 10.
+):
     if sys.platform != "darwin":
+        # pynotifier is windows+linux
         from pynotifier import Notification
 
         Notification(
