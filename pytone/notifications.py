@@ -1,13 +1,16 @@
 import sys
 import os
 
-from .paths import python_icon
+from playsound import playsound
+
+from .paths import python_icon, get_random_soundfile, get_soundfile
 
 
 def notify(
     title="Python notification",
     message: str = "Your program has completed",
-    duration: float = 10.
+    duration: float = 10.,
+    sound: str = None
 ):
     if sys.platform != "darwin":
         # pynotifier is windows+linux
@@ -26,3 +29,11 @@ def notify(
         Notifier.notify(message, title=title)
         Notifier.remove(os.getpid())
         Notifier.list(os.getpid())
+
+    if sound is not None:
+        if sound == "random":
+            soundfile = get_random_soundfile()
+        else:
+            soundfile = get_soundfile(sound)
+
+        playsound(soundfile)
